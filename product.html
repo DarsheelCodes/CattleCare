@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CattleCare: Our Products</title>
+    <style>
+      /* Style for the viewer container */
+      #pdfViewer {
+          width: 100%;
+          max-width: 800px; /* Adjust max-width as needed */
+          margin: auto;
+          text-align: center;
+          overflow: auto; /* Allow scroll when content exceeds container size */
+          border: 1px solid #ddd; /* Optional styling */
+          padding: 10px;
+      }
+      
+      /* Make canvas responsive */
+      canvas {
+          width: 100%;
+          height: auto;
+          display: block;
+          margin: 0 auto;
+      }
+
+      /* Button styling */
+      .controls {
+          text-align: center;
+          margin-top: 10px;
+      }
+
+      .controls button {
+          padding: 10px 20px;
+          background-color: #007bff;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          margin: 5px;
+      }
+
+      .controls button:hover {
+          background-color: #0056b3;
+      }
+  </style>
+</head>
+<link rel="stylesheet" href="/header.css">
+<link rel="stylesheet" href="/footer.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="/general.css">
+<link rel="stylesheet" href="/product.css">
+<body>
+    <header>
+        <div class="header">
+            <a href="/"><p>CattleCare.</p></a>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#aboutus">About us</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="reference.pdf" download>References</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="hero">
+            <div class="hero-img"></div>
+            <div class="hero-text">
+                <h3>Our Products</h3>
+                <p>Smart Solutions for Healthier, Happier Herds</p>
+            </div>
+        </div>
+        <div id="aboutus">
+            <h3>Overview</h3>
+            <div class="textcont">
+                <img src="OurProductsImg1.jpg" alt="aboutus-img1">
+                <div class="abouttext"> <p>
+                    Our innovative Cattle Health Monitoring System leverages advanced technology to ensure the well-being of livestock. The system uses wearable devices, such as temperature sensors and pulse oximeters, to track vital signs like body temperature and oxygen levels in real time, enabling early detection of health issues.</p>
+                    <hr />
+                <p>In addition, environmental sensors monitor temperature, humidity, and water feed management, ensuring optimal living conditions for cattle. The system also includes safety features like security alerts, fire alarms, and flood detection.</p>
+                <p>With the introduction of Cellufenu, a natural temperature and humidity regulating material, we provide a comfortable and secure environment for cattle, improving health management and farm efficiency.</p></div>
+            </div>
+        </div>
+        <div class="Products">
+            <h2>Our Report</h2>
+            <div id="pdfViewer">
+              <canvas id="pdfCanvas"></canvas>
+          </div>
+          
+          <div class="controls">
+              <button id="prevPage">Previous</button>
+              <button id="nextPage">Next</button>
+          </div>
+        </div>
+        <div class="form">
+            <h2>Livestock Vitals</h2>
+            <form id="form">
+                <label for="temp">Temperature (in Degrees Celsius): </label>
+                <input type="text" name="temp" id="temp" placeholder="Temperature" required>
+                
+                <label for="rate">Heart Rate: </label>
+                <input type="text" name="rate" id="rate" placeholder="Heart Rate" required>
+                
+                <label for="sp">Oxygen Saturation (SPO2): </label>
+                <input type="text" name="sp" id="sp" placeholder="Oxygen Saturation (SPO2)" required>
+                
+                <button type="submit">Submit</button>
+                
+                <div id="answer">
+                    <p id="tempResult"></p>
+                    <p id="rateResult"></p>
+                    <p id="spResult"></p>
+                </div>
+                
+                <img src="cow.png" style="width: 200px; position: absolute; top: -50px; right: -70px;" alt="cow">
+            </form>
+        </div>
+        
+        <style>
+            .optimal {
+                color: green;
+                font-weight: bold;
+            }
+            .not-optimal {
+                color: red;
+                font-weight: bold;
+            }
+        </style>
+        
+        <script>
+            document.getElementById('form').addEventListener('submit', function(event) {
+                event.preventDefault();  // Prevent the form from refreshing the page
+        
+                // Get input values
+                let temp = parseFloat(document.getElementById('temp').value);
+                let rate = parseFloat(document.getElementById('rate').value);
+                let sp = parseFloat(document.getElementById('sp').value);
+        
+                // Define optimal ranges
+                let tempOptimal = temp <= 39.2 && temp >= 38.6;
+                let rateOptimal = rate <= 84 && rate >= 48;
+                let spOptimal = sp <= 100 && sp >= 95;
+        
+                // Set result messages and colors
+                setMessageAndColor('tempResult', tempOptimal, "Optimal Temperature", "Not Optimal Temperature");
+                setMessageAndColor('rateResult', rateOptimal, "Optimal Heart Rate", "Not Optimal Heart Rate");
+                setMessageAndColor('spResult', spOptimal, "Optimal Blood Saturation", "Not Optimal Blood Saturation");
+            });
+        
+            function setMessageAndColor(elementId, isOptimal, optimalMessage, notOptimalMessage) {
+                const element = document.getElementById(elementId);
+                element.textContent = isOptimal ? optimalMessage : notOptimalMessage;
+                element.className = isOptimal ? 'optimal' : 'not-optimal';  // Apply the class based on result
+            }
+        </script>
+        
+        
+        </div>
+        <section class="text-gray-600 body-font">
+            <div class="container px-5 py-24 mx-auto">
+              <h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center">Testimonials</h1>
+              <div class="flex flex-wrap -m-4">
+                <div class="p-4 md:w-1/2 w-full">
+                  <div class="h-full bg-gray-100 p-8 rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="block w-5 h-5 text-gray-400 mb-4" viewBox="0 0 975.036 975.036">
+                      <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+                    </svg>
+                    <p class="leading-relaxed mb-6">"Managing a large herd was overwhelming until we started using this website. From temperature monitoring to heart rate and oxygen levels, I can track it all and make sure each cow is thriving. It's like having a personal veterinarian for the whole farm 24/7!"</p>
+                    <a class="inline-flex items-center">
+                      <img alt="testimonial" src="mlg2.png" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
+                      <span class="flex-grow flex flex-col pl-4">
+                        <span class="title-font font-medium text-gray-900">Rajesh Reddy</span>
+                        <span class="text-gray-500 text-sm">Small Farm Owner</span>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+                <div class="p-4 md:w-1/2 w-full">
+                  <div class="h-full bg-gray-100 p-8 rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="block w-5 h-5 text-gray-400 mb-4" viewBox="0 0 975.036 975.036">
+                      <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+                    </svg>
+                    <p class="leading-relaxed mb-6">I used to struggle with keeping track of each cow’s health records manually, but now everything is right at my fingertips. This system's health recommendations and optimal ranges have helped me take better care of my herd, and I’ve seen a noticeable improvement in productivity and milk quality.</p>
+                    <a class="inline-flex items-center">
+                      <img alt="testimonial" src="mlg.jpg" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
+                      <span class="flex-grow flex flex-col pl-4">
+                        <span class="title-font font-medium text-gray-900">Ramesh Gowda</span>
+                        <span class="text-gray-500 text-sm">Organic Dairy Farmer</span>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+    </main>
+    <footer>
+        <div class="footer">
+            <div id="left"><a href="/">CattleCare.</a>
+                <p>&copy; 2024 CattleCare. All rights reserved.</p></div>
+            <div id="center">
+                <h3>Important Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#aboutus">About us</a></li>
+                    <li><a href="product.html">Products</a></li>
+                    <li><a href="reference.pdf" download>References</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="/static/js/form.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script>
+        const url = 'expo.pdf'; // Path to your PDF file
+        let pdfDoc = null;
+        let currentPage = 1;
+        let totalPages = 0;
+        let scale = 1.5; // Scale for PDF page rendering
+    
+        // Set up PDF.js worker
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js';
+    
+        const loadPDF = async () => {
+            try {
+                const pdf = await pdfjsLib.getDocument(url).promise; // Load PDF
+                pdfDoc = pdf;
+                totalPages = pdf.numPages;
+                renderPage(currentPage); // Render the first page
+            } catch (error) {
+                console.error('Error loading PDF:', error);
+            }
+        };
+    
+        const renderPage = async (pageNum) => {
+            const page = await pdfDoc.getPage(pageNum);
+            const viewport = page.getViewport({ scale: scale });
+    
+            const canvas = document.getElementById('pdfCanvas');
+            const context = canvas.getContext('2d');
+    
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+    
+            // Render the PDF page
+            page.render({
+                canvasContext: context,
+                viewport: viewport
+            });
+        };
+    
+        // Navigation buttons
+        document.getElementById('prevPage').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                renderPage(currentPage);
+            }
+        });
+    
+        document.getElementById('nextPage').addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderPage(currentPage);
+            }
+        });
+    
+        loadPDF();
+    </script>
+</body>
+</html>

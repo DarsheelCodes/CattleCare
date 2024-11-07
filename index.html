@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CattleCare: Home</title>
+    <link rel="stylesheet" href="/general.css">
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/footer.css">
+</head>
+<body>
+    <header>
+        <div class="header">
+            <a href="/"><p>CattleCare.</p></a>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#aboutus">About us</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="reference.pdf" download>References</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero">
+            <div id="hero-img"></div>
+            <div id="hero-text">
+                <h3>Precision Health for a Thriving Herd</h3>
+                <p>Discover how Cattle Care empowers farmers with data-driven tools for proactive livestock health management.</p>
+                <button onclick="location.href='product.html'">Learn more</button>
+            </div>
+        </div>
+        <div class="biggercar">
+            <h3>Our Gallery</h3>
+            <div class="carousel">
+            
+                <div class="carousel-item">
+                    <div class="slide-image"
+                        style="background-image: 
+        url('car1.jpeg');">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="slide-image"
+                        style="background-image: 
+        url('car2.jpeg');">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="slide-image"
+                        style="background-image: 
+        url('car3.jpeg');">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="slide-image"
+                        style="background-image: 
+        url('car4.jpeg');">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="slide-image"
+                        style="background-image: 
+        url('car5.jpeg');">
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div id="aboutus">
+            <h3>About Us</h3>
+            <div class="textcont">
+                <img src="aboutus-img1.jpg" alt="aboutus-img1">
+                <div class="abouttext"> <p>
+                    At Cattle Care, we focus on improving cattle health management for farmers through a reliable, data-driven approach. Early health monitoring is key to ensuring animal welfare and sustainable farming. Our platform helps farmers track important health indicators easily, enabling quick actions that can save lives and improve herd performance.</p>
+                    <hr />
+                <p>By choosing Cattle Care, you're investing in proactive livestock health management. We provide farmers with practical insights to create a healthier farming environment. Our approach not only benefits livestock health but also boosts efficiency, profitability, and sustainability in agriculture. With Cattle Care, farmers can confidently ensure their herds thrive and stay healthy.</p></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer">
+            <div id="left"><a href="/">CattleCare.</a>
+                <p>&copy; 2024 CattleCare. All rights reserved.</p></div>
+            <div id="center">
+                <h3>Important Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#aboutus">About us</a></li>
+                    <li><a href="product.html">Products</a></li>
+                    <li><a href="reference.pdf" download>References</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+        window.onload = function () {
+    let slides = 
+        document.getElementsByClassName('carousel-item');
+
+    function addActive(slide) {
+        slide.classList.add('active');
+    }
+
+    function removeActive(slide) {
+        slide.classList.remove('active');
+    }
+
+    addActive(slides[0]);
+    setInterval(function () {
+        for (let i = 0; i < slides.length; i++) {
+            if (i + 1 == slides.length) {
+                addActive(slides[0]);
+                setTimeout(removeActive, 350, slides[i]);
+                break;
+            }
+            if (slides[i].classList.contains('active')) {
+                setTimeout(removeActive, 350, slides[i]);
+                addActive(slides[i + 1]);
+                break;
+            }
+        }
+    }, 3000);
+};
+
+    </script>
+</body>
+</html>

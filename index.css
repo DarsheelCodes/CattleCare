@@ -1,0 +1,242 @@
+
+
+
+#hero{
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+    opacity: 0;
+}
+
+#hero-img{
+    background-image: url(herobg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 672px;
+    filter: brightness(55%);
+
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px; /* Adjust height for the fade effect */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0),  rgb(98, 98, 193));
+    pointer-events: none; /* Allow interactions with underlying elements */
+}
+
+
+#hero-text{
+    position: absolute;
+    top: 38%;
+    left: 5%;
+    right: 5%;
+    color: white;
+    text-align: center;
+    h3{
+        
+        font-size: 50px;
+    }
+    button{
+        border: none;
+        background-color: rgb(98, 98, 193);
+        padding: 10px 20px;
+        border-radius: 25px;
+        color: white;
+        margin-top: 10px;
+        transition: background-color 0.15s ;
+    }
+    button:hover{
+        cursor: pointer;
+        background-color: rgb(111, 111, 216);
+    }
+}
+
+.hero{
+    position: relative;
+}
+
+#aboutus{
+    z-index: 1;
+    background-color: rgb(225, 225, 225);
+    padding: 30px;
+
+    h3{
+        color:  rgb(70, 70, 193);
+
+        font-size: 40px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    img{
+        min-width: 500px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+}
+
+.textcont{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    background-color: rgb(70, 70, 193);
+    padding: 40px;
+    display: flex;
+    border-radius: 25px;
+    color: white;
+    font-size: 20px;
+    img{
+        max-height: 500px;
+        border-radius: 20px 0 0 20px;
+    }
+
+    .abouttext{
+      
+        margin-left: 20px;
+
+        
+    }
+    hr{
+        margin: 50px;
+    }
+
+}
+
+
+.carousel {
+    justify-content: center;
+    justify-items: center;
+    margin: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 550px;
+    height: 350px;
+    overflow: hidden;
+    background-color: #cdcdcd;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.carousel-item .slide-image {
+    width: 550px;
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carousel-item {
+    position: absolute;
+    width: 100%;
+    height: 270px;
+    border: none;
+    top: 0;
+    left: 100%;
+}
+
+.carousel-item.active {
+    left: 0;
+    transition: all 0.3s ease-out;
+}
+
+.carousel-item div {
+    height: 100%;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.violet {
+    background-color: violet;
+}
+
+
+.biggercar{
+    background-color: rgb(98, 98, 193);
+    padding: 30px 30px 30px 50px;
+    z-index: 5;
+    h3{
+        text-align: center;
+        color: white;
+        font-size: 40px;
+        margin-bottom: 30px;
+    }
+}
+
+
+
+@media (max-width:1400px){
+
+    .abouttext{
+        p{  
+            padding: 20px;
+            font-size: 15px;
+        }
+        hr{
+            margin: 20px;
+        }
+    }
+    
+}
+
+
+@media (max-width:1000px){
+    .abouttext{
+        padding-top: 20px;
+        margin-left: 0px;
+        
+    }
+    .textcont{
+        flex-direction: column;
+        img{
+          
+            border-radius: 20px;
+            max-width: 500px;
+            max-height: 500px;
+        }
+        align-items: center;
+    }
+    .biggercar{
+        padding: 40px;
+    }
+    .carousel {
+       
+        width: 450px;
+        height: 250px;
+
+    }
+    
+    .carousel-item .slide-image {
+        width: 450px;
+        height: 250px;
+     
+    }
+}
+
+
+@media (max-width:800px){
+    .textcont{
+        flex-direction: column;
+        img{
+          
+            border-radius: 20px;
+
+            min-height: 300px;
+        }
+        align-items: center;
+    }
+}
+
